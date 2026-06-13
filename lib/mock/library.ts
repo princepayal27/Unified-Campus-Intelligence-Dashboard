@@ -1,0 +1,63 @@
+// lib/mock/library.ts
+
+export type LibraryBook = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  available: boolean;
+  dueDate: string | null;
+};
+
+export const libraryBooks: LibraryBook[] = [
+  { id: "BOOK001", title: "Introduction to Algorithms", author: "Thomas H. Cormen", category: "Computer Science", available: true, dueDate: null },
+  { id: "BOOK002", title: "Artificial Intelligence: A Modern Approach", author: "Stuart Russell", category: "Artificial Intelligence", available: false, dueDate: "2026-07-15" },
+  { id: "BOOK003", title: "Deep Learning", author: "Ian Goodfellow", category: "Data Science", available: true, dueDate: null },
+  { id: "BOOK004", title: "Fundamentals of Physics", author: "David Halliday", category: "Physics", available: false, dueDate: "2026-07-20" },
+  { id: "BOOK005", title: "The Pragmatic Programmer", author: "Andrew Hunt", category: "Software Engineering", available: true, dueDate: null },
+  { id: "BOOK006", title: "Microelectronic Circuits", author: "Adel S. Sedra", category: "Electrical Engineering", available: true, dueDate: null },
+  { id: "BOOK007", title: "Discrete Mathematics and Its Applications", author: "Kenneth Rosen", category: "Mathematics", available: false, dueDate: "2026-08-01" },
+  { id: "BOOK008", title: "Clean Architecture", author: "Robert C. Martin", category: "Software Engineering", available: true, dueDate: null },
+  { id: "BOOK009", title: "Pattern Recognition and Machine Learning", author: "Christopher Bishop", category: "Artificial Intelligence", available: false, dueDate: "2026-07-28" },
+  { id: "BOOK010", title: "Calculus: Early Transcendentals", author: "James Stewart", category: "Mathematics", available: true, dueDate: null },
+  { id: "BOOK011", title: "Python for Data Analysis", author: "Wes McKinney", category: "Data Science", available: true, dueDate: null },
+  { id: "BOOK012", title: "Electromagnetic Fields and Waves", author: "David Cheng", category: "Electrical Engineering", available: false, dueDate: "2026-07-10" },
+  { id: "BOOK013", title: "Operating System Concepts", author: "Abraham Silberschatz", category: "Computer Science", available: true, dueDate: null },
+  { id: "BOOK014", title: "Quantum Mechanics: Concepts and Applications", author: "Nouredine Zettili", category: "Physics", available: false, dueDate: "2026-08-15" },
+  { id: "BOOK015", title: "Designing Data-Intensive Applications", author: "Martin Kleppmann", category: "Software Engineering", available: true, dueDate: null },
+];
+
+/**
+ * Returns only books that are currently available for checkout.
+ */
+export const getAvailableBooks = (): LibraryBook[] => {
+  return libraryBooks.filter((book) => book.available);
+};
+
+/**
+ * Returns only books that are currently borrowed.
+ */
+export const getBorrowedBooks = (): LibraryBook[] => {
+  return libraryBooks.filter((book) => !book.available);
+};
+
+/**
+ * Filters books based on the provided category string.
+ */
+export const getBooksByCategory = (category: string): LibraryBook[] => {
+  return libraryBooks.filter(
+    (book) => book.category.toLowerCase() === category.toLowerCase()
+  );
+};
+
+/**
+ * Performs a case-insensitive search across title and author fields.
+ */
+export const searchBooks = (query: string): LibraryBook[] => {
+  const lowerQuery = query.toLowerCase();
+  return libraryBooks.filter(
+    (book) =>
+      book.title.toLowerCase().includes(lowerQuery) ||
+      book.author.toLowerCase().includes(lowerQuery)
+  );
+};

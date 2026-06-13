@@ -1,0 +1,127 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  /* Core palette */
+  --color-background: #121212;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #222222;
+  --color-foreground: #f5f5f5;
+  --color-muted: #a0a0a0;
+
+  /* Premium gold accent */
+  --color-accent: #c9a86a;
+  --color-accent-hover: #d4af37;
+
+  /* States */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-success: #4caf50;
+  --color-warning: #e2a04a;
+  --color-danger: #e25c5c;
+
+  /* Radius */
+  --radius-default: 18px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Khula", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(201,168,106,0.05), transparent 25%);
+  }
+
+  ::selection {
+    background-color: rgba(201, 168, 106, 0.25);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+@layer components {
+  /* Premium card style */
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+
+    transition:
+      background 200ms ease,
+      border-color 200ms ease,
+      transform 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(201, 168, 106, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Sidebar surface */
+  .sidebar-surface {
+    background: #181818;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* AI panel surface */
+  .ai-panel-surface {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Search field */
+  .search-surface {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+  }
+
+  /* Active nav item */
+  .nav-active {
+    background: rgba(201, 168, 106, 0.12);
+    border: 1px solid rgba(201, 168, 106, 0.18);
+    color: var(--color-accent);
+  }
+}
