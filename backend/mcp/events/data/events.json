@@ -1,0 +1,134 @@
+[
+  {
+    "id": "EVT001",
+    "title": "AI Hackathon 2026",
+    "description": "A 24-hour AI innovation challenge.",
+    "category": "Technology",
+    "date": "2026-06-18",
+    "time": "10:00 AM",
+    "venue": "Main Auditorium",
+    "organizer": "AI Club",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT002",
+    "title": "AI & Future Tech Summit",
+    "description": "Talks and panels on emerging AI and future technologies.",
+    "category": "Academic",
+    "date": "2026-06-25",
+    "time": "09:30 AM",
+    "venue": "Main Auditorium",
+    "organizer": "Computer Science Dept",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT003",
+    "title": "Annual Cultural Fest",
+    "description": "A celebration of music, dance, and art across departments.",
+    "category": "Cultural",
+    "date": "2026-07-05",
+    "time": "05:00 PM",
+    "venue": "University Grounds",
+    "organizer": "Student Union",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT004",
+    "title": "Hackathon 2026",
+    "description": "48-hour coding competition with industry mentors.",
+    "category": "Technical",
+    "date": "2026-07-12",
+    "time": "08:00 AM",
+    "venue": "Innovation Lab",
+    "organizer": "Coding Club",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT005",
+    "title": "Startup Pitch Day",
+    "description": "Student founders pitch ideas to investors and mentors.",
+    "category": "Business",
+    "date": "2026-07-18",
+    "time": "11:00 AM",
+    "venue": "Seminar Hall B",
+    "organizer": "Entrepreneurship Cell",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT006",
+    "title": "Inter-College Robotics Expo",
+    "description": "Showcase of robotics projects from participating colleges.",
+    "category": "Technical",
+    "date": "2026-07-22",
+    "time": "10:00 AM",
+    "venue": "Engineering Block",
+    "organizer": "Robotics Club",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT007",
+    "title": "Yoga & Wellness Session",
+    "description": "Guided yoga and mindfulness session for students and staff.",
+    "category": "Wellness",
+    "date": "2026-07-25",
+    "time": "07:00 AM",
+    "venue": "Sports Complex",
+    "organizer": "Health & Fitness Wing",
+    "registrationOpen": false
+  },
+  {
+    "id": "EVT008",
+    "title": "Music Night: Live Jam",
+    "description": "Open-air live music performances by student bands.",
+    "category": "Cultural",
+    "date": "2026-07-29",
+    "time": "06:30 PM",
+    "venue": "Open Air Theater",
+    "organizer": "Music Club",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT009",
+    "title": "Guest Lecture: Quantum Computing",
+    "description": "Expert talk on the fundamentals and future of quantum computing.",
+    "category": "Academic",
+    "date": "2026-08-02",
+    "time": "02:00 PM",
+    "venue": "Physics Hall",
+    "organizer": "Physics Dept",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT010",
+    "title": "AI for Social Good Workshop",
+    "description": "Hands-on workshop applying AI to social impact projects.",
+    "category": "Technology",
+    "date": "2026-08-10",
+    "time": "10:00 AM",
+    "venue": "Lab-3",
+    "organizer": "AI Club",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT011",
+    "title": "Alumni Networking Mixer",
+    "description": "Informal networking event connecting current students with alumni.",
+    "category": "Career",
+    "date": "2026-08-15",
+    "time": "06:00 PM",
+    "venue": "Convention Center",
+    "organizer": "Alumni Relations",
+    "registrationOpen": true
+  },
+  {
+    "id": "EVT012",
+    "title": "Past Workshop (Expired)",
+    "description": "Example of an event that should be excluded from upcoming results.",
+    "category": "Technology",
+    "date": "2026-01-10",
+    "time": "10:00 AM",
+    "venue": "Lab-1",
+    "organizer": "AI Club",
+    "registrationOpen": false
+  }
+]
