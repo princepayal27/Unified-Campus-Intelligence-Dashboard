@@ -1,30 +1,81 @@
 "use client";
 
-import { useState } from "react";
-import { Search, BookOpen, Clock, CheckCircle2, AlertCircle } from "lucide-react";
-import { libraryBooks, type LibraryBook } from "@/lib/mock/library";
+import { useState, useEffect } from "react";
+import {
+  Search,
+  BookOpen,
+  Clock,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
+
+type LibraryBook = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  available: boolean;
+  dueDate: string | null;
+};
 
 export default function LibraryPage() {
   const [query, setQuery] = useState("");
+  const [books, setBooks] = useState<LibraryBook[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const filteredBooks = libraryBooks.filter(
-    (book) =>
-      book.title.toLowerCase().includes(query.toLowerCase()) ||
-      book.author.toLowerCase().includes(query.toLowerCase()) ||
-      book.category.toLowerCase().includes(query.toLowerCase())
-  );
+  const fetchBooks = async (searchQuery: string = "") => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const endpoint = searchQuery.trim()
+        ? `http://127.0.0.1:8001/library/search?q=${searchQuery}`
+        : `http://127.0.0.1:8001/library/search?q=a`;
+
+      const res = await fetch(endpoint);
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch books");
+      }
+
+      const data = await res.json();
+      setBooks(data.results);
+    } catch (err) {
+      console.error(err);
+      setError("Unable to connect to Library MCP server.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load initial books
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  // Search whenever query changes
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      fetchBooks(query);
+    }, 400);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
 
   return (
     <div className="p-8 max-w-7xl mx-auto space-y-8">
-      {/* Header Section */}
+      {/* Header */}
       <header className="space-y-2">
-        <h1 className="text-3xl font-semibold text-white">Library Intelligence</h1>
+        <h1 className="text-3xl font-semibold text-white">
+          Library Intelligence
+        </h1>
         <p className="text-gray-400">
           Browse books, track availability, and manage due dates
         </p>
       </header>
 
-      {/* Search Section */}
+      {/* Search */}
       <div className="search-surface w-full p-2 rounded-full border border-white/10 bg-[#1a1a1a]/50 backdrop-blur-md flex items-center gap-3">
         <Search className="w-5 h-5 text-[#c9a86a] ml-3" />
         <input
@@ -36,22 +87,45 @@ export default function LibraryPage() {
         />
       </div>
 
+      {/* Loading */}
+      {loading && (
+        <div className="text-center text-gray-400 py-10">
+          Loading books...
+        </div>
+      )}
+
+      {/* Error */}
+      {error && (
+        <div className="text-center text-red-400 py-10">
+          {error}
+        </div>
+      )}
+
       {/* Books Grid */}
-      {filteredBooks.length > 0 ? (
+      {!loading && !error && books.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filteredBooks.map((book) => (
-            <div key={book.id} className="card p-6 border border-white/10 rounded-[18px] bg-[#1a1a1a]/40 backdrop-blur-sm hover:border-[#c9a86a]/30 transition-all duration-300">
+          {books.map((book) => (
+            <div
+              key={book.id}
+              className="card p-6 border border-white/10 rounded-[18px] bg-[#1a1a1a]/40 backdrop-blur-sm hover:border-[#c9a86a]/30 transition-all duration-300"
+            >
               <div className="flex justify-between items-start mb-4">
                 <div className="p-2 bg-[#c9a86a]/10 rounded-lg text-[#c9a86a]">
                   <BookOpen className="w-5 h-5" />
                 </div>
+
                 <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/5 text-gray-300">
                   {book.category}
                 </span>
               </div>
 
-              <h3 className="text-lg font-medium text-white mb-1 truncate">{book.title}</h3>
-              <p className="text-sm text-gray-400 mb-6">{book.author}</p>
+              <h3 className="text-lg font-medium text-white mb-1 truncate">
+                {book.title}
+              </h3>
+
+              <p className="text-sm text-gray-400 mb-6">
+                {book.author}
+              </p>
 
               <div className="flex items-center justify-between pt-4 border-t border-white/5">
                 {book.available ? (
@@ -65,7 +139,7 @@ export default function LibraryPage() {
                     <span>Checked Out</span>
                   </div>
                 )}
-                
+
                 {book.dueDate && (
                   <div className="flex items-center gap-1.5 text-xs text-gray-500">
                     <Clock className="w-3.5 h-3.5" />
@@ -77,10 +151,15 @@ export default function LibraryPage() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-20 text-center">
-          <p className="text-gray-400">No books found</p>
-          <p className="text-sm text-gray-600">Try adjusting your search keywords.</p>
-        </div>
+        !loading &&
+        !error && (
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <p className="text-gray-400">No books found</p>
+            <p className="text-sm text-gray-600">
+              Try adjusting your search keywords.
+            </p>
+          </div>
+        )
       )}
     </div>
   );
