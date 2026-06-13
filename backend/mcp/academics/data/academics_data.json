@@ -1,0 +1,22 @@
+{
+  "attendance": {
+    "overallPercentage": 82,
+    "totalClasses": 120,
+    "attendedClasses": 98,
+    "status": "warning"
+  },
+  "classes": [
+    { "id": "CLS001", "subjectCode": "CS301", "subjectName": "Operating Systems", "faculty": "Dr. K. Verma", "startTime": "09:00 AM", "room": "Room 204" },
+    { "id": "CLS002", "subjectCode": "CS401", "subjectName": "Machine Learning", "faculty": "Dr. L. Singh", "startTime": "10:30 AM", "room": "Lab-3" },
+    { "id": "CLS003", "subjectCode": "CS202", "subjectName": "Database Management Systems", "faculty": "Prof. R. Gupta", "startTime": "11:30 AM", "room": "Room 101" },
+    { "id": "CLS004", "subjectCode": "CS302", "subjectName": "Computer Networks", "faculty": "Prof. S. Mehta", "startTime": "02:00 PM", "room": "Room 205" },
+    { "id": "CLS005", "subjectCode": "CS201", "subjectName": "Data Structures", "faculty": "Dr. A. Sharma", "startTime": "03:30 PM", "room": "Lab-1" }
+  ],
+  "assignments": [
+    { "id": "ASG001", "subjectCode": "CS202", "title": "DBMS ER Diagram Submission", "dueDate": "2026-06-15", "priority": "high", "submitted": false },
+    { "id": "ASG002", "subjectCode": "CS301", "title": "OS Scheduling Report", "dueDate": "2026-06-18", "priority": "medium", "submitted": true },
+    { "id": "ASG003", "subjectCode": "CS401", "title": "ML Model Evaluation", "dueDate": "2026-06-20", "priority": "high", "submitted": false },
+    { "id": "ASG004", "subjectCode": "CS302", "title": "Network Topology Analysis", "dueDate": "2026-06-22", "priority": "low", "submitted": false },
+    { "id": "ASG005", "subjectCode": "CS402", "title": "Software Project Proposal", "dueDate": "2026-06-25", "priority": "medium", "submitted": true }
+  ]
+}

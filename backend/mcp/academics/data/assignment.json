@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ASG001",
+    "title": "SAR Wind Retrieval Report",
+    "subjectCode": "OE401",
+    "dueDate": "2026-06-18",
+    "submitted": false,
+    "priority": "high"
+  },
+  {
+    "id": "ASG002",
+    "title": "Protection Relay Analysis",
+    "subjectCode": "EE402",
+    "dueDate": "2026-06-22",
+    "submitted": false,
+    "priority": "medium"
+  },
+  {
+    "id": "ASG003",
+    "title": "CMOS Amplifier Design",
+    "subjectCode": "EC403",
+    "dueDate": "2026-06-25",
+    "submitted": true,
+    "priority": "low"
+  }
+]

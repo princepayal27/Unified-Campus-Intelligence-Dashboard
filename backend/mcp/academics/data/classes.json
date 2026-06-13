@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CLS001",
+    "subjectName": "Digital Signal Processing",
+    "faculty": "Dr. Sharma",
+    "room": "E-204",
+    "startTime": "10:00 AM"
+  },
+  {
+    "id": "CLS002",
+    "subjectName": "Power Systems",
+    "faculty": "Prof. Mehta",
+    "room": "E-301",
+    "startTime": "12:30 PM"
+  },
+  {
+    "id": "CLS003",
+    "subjectName": "Microelectronics",
+    "faculty": "Dr. Rao",
+    "room": "E-102",
+    "startTime": "3:00 PM"
+  }
+]
