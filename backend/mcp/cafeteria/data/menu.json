@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-13",
+  "breakfast": [
+    "Poha",
+    "Idli Sambar",
+    "Masala Tea",
+    "Cold Coffee"
+  ],
+  "lunch": [
+    "Dal Rice",
+    "Paneer Butter Masala",
+    "Tandoori Roti",
+    "Veg Biryani",
+    "Salad"
+  ],
+  "dinner": [
+    "Chapati",
+    "Mixed Veg Curry",
+    "Dal Khichdi",
+    "Tomato Soup"
+  ]
+}
