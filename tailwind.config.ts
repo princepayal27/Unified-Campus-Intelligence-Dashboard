@@ -22,7 +22,7 @@ const config: Config = {
         border: "#3F3F3F",
       },
       fontFamily: {
-        sans: ["Khula", "sans-serif"],
+        sans: ["Inter", "var(--font-inter)", "sans-serif"],
       },
       borderRadius: {
         DEFAULT: "12px",

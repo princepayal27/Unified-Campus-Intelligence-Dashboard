@@ -1,12 +1,12 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Khula } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const khula = Khula({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
-  variable: "--font-khula",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={khula.variable}>
+    <html lang="en" className={inter.variable}>
       <body className="font-sans">{children}</body>
     </html>
   );
